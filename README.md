@@ -1,33 +1,36 @@
-# TurboDictate Download Website
+# TurboDictate Website
 
-This folder contains the download website for TurboDictate.
+Download website for TurboDictate - a fast, private voice-to-text app.
 
-## Files to add before deploying:
+## About
 
-1. **TurboDictate_Setup_1.0.0.exe** - Windows installer
-   - Build with: `cd API_WHISPER && .\build_installer.bat`
-   - Copy from: `API_WHISPER/installer_output/TurboDictate_Setup_1.0.0.exe`
+TurboDictate transforms your voice into text instantly using AI-powered transcription. Available for Windows desktop and Android mobile.
 
-2. **TurboDictate.apk** - Android app
-   - Build with: `cd whisper_mobile && flutter build apk --release`
-   - Copy from: `whisper_mobile/build/app/outputs/flutter-apk/app-release.apk`
-   - Rename to: `TurboDictate.apk`
+## Features
 
-## Deploying to GitHub Pages:
+- Lightning fast transcription
+- Supports English and Arabic
+- Privacy first - audio deleted after transcription
+- Global hotkeys (Windows)
+- Custom voice keyboard (Android)
 
-1. Create a new GitHub repository (e.g., `turbodictate-download`)
-2. Copy all files from this folder to the new repo
-3. Push to GitHub
-4. Go to repo Settings → Pages → Enable GitHub Pages from main branch
-5. Your site will be live at: `https://yourusername.github.io/turbodictate-download/`
-
-## File structure:
+## File Structure
 
 ```
 Whisper_Website/
 ├── index.html              # Main download page
 ├── privacy-policy.html     # Privacy policy
-├── TurboDictate_Setup_1.0.0.exe  # (add this)
-├── TurboDictate.apk        # (add this)
-└── README.md               # This file
+├── icon.png                # App logo
+├── TurboDictate_Phone.jpeg # Mobile app screenshot
+├── TurboDictate_Keyboard.jpeg # Keyboard screenshot
+├── turbo_record.png        # Desktop app screenshot
+└── README.md
 ```
+
+## Downloads
+
+Downloads are available via [GitHub Releases](https://github.com/Hamz115/Whisper_Website/releases).
+
+## Live Website
+
+Visit: https://hamz115.github.io/Whisper_Website/
