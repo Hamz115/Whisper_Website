@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TurboDictate - Voice to Text Made Easy</title>
+    <link rel="icon" type="image/png" href="icon.png">
+    <style>
+        :root {
+            --primary: #2196F3;
+            --primary-dark: #1976D2;
+            --secondary: #4AC3E0;
+            --accent: #F59E0B;
+            --navy: #1E3A5F;
+            --text: #1E293B;
+            --text-light: #64748B;
+            --bg: #F8FAFC;
+            --white: #FFFFFF;
+            --border: #E2E8F0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--white);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Navigation */
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 40px;
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text);
+        }
+
+        .nav-logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .nav-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section - Clean */
+        .hero {
+            padding: 80px 60px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            color: var(--text);
+            line-height: 1.15;
+            margin-bottom: 25px;
+        }
+
+        .hero-text h1 span {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-text p {
+            font-size: 1.15rem;
+            color: var(--text-light);
+            margin-bottom: 35px;
+            line-height: 1.9;
+            max-width: 520px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 28px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            box-shadow: 0 4px 15px rgba(33, 150, 243, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(33, 150, 243, 0.4);
+        }
+
+        .btn-secondary {
+            background: var(--white);
+            color: var(--text);
+            border: 2px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-icon {
+            font-size: 1.2rem;
+        }
+
+        /* Hero Visual */
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            gap: 25px;
+        }
+
+        .device-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .device-label {
+            font-size: 0.75rem;
+            color: var(--text-light);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Phone Mockup */
+        .phone-mockup {
+            background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+            border-radius: 24px;
+            padding: 6px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+        }
+
+        .phone-mockup img {
+            width: 140px;
+            height: auto;
+            border-radius: 20px;
+            display: block;
+        }
+
+        /* Laptop Frame */
+        .laptop-frame {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .laptop-screen {
+            background: #1a1a1a;
+            border-radius: 10px 10px 0 0;
+            padding: 10px 10px 6px 10px;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.25);
+        }
+
+        .laptop-screen img {
+            width: 260px;
+            height: auto;
+            border-radius: 4px;
+            display: block;
+        }
+
+        .laptop-base {
+            width: 280px;
+            height: 12px;
+            background: linear-gradient(180deg, #2a2a2a, #1a1a1a);
+            border-radius: 0 0 3px 3px;
+        }
+
+        .laptop-bottom {
+            width: 320px;
+            height: 6px;
+            background: linear-gradient(180deg, #3a3a3a, #2a2a2a);
+            border-radius: 0 0 8px 8px;
+        }
+
+        /* Tutorial Section */
+        .tutorial {
+            padding: 80px 40px;
+            background: var(--bg);
+        }
+
+        .tutorial-content {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .tutorial-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .tutorial-tab {
+            padding: 12px 30px;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            border: 2px solid var(--border);
+            background: var(--white);
+            color: var(--text);
+            transition: all 0.2s;
+        }
+
+        .tutorial-tab:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .tutorial-tab.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+        }
+
+        .tutorial-panel {
+            display: none;
+        }
+
+        .tutorial-panel.active {
+            display: block;
+        }
+
+        .tutorial-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .tutorial-step {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+        }
+
+        .step-number {
+            width: 32px;
+            height: 32px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .tutorial-step h4 {
+            font-size: 1.1rem;
+            color: var(--text);
+            margin-bottom: 10px;
+        }
+
+        .tutorial-step p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .hotkey-badge {
+            display: inline-block;
+            background: var(--navy);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 0.85rem;
+            margin: 3px 2px;
+        }
+
+        /* Features */
+        .features {
+            background: linear-gradient(135deg, #1E3A5F 0%, #2A4A6F 50%, #1E3A5F 100%);
+            padding: 80px 40px;
+        }
+
+        .features-content {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--text);
+        }
+
+        .features .section-title {
+            color: white;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto 50px;
+        }
+
+        .features .section-subtitle {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.15);
+            transition: box-shadow 0.3s, transform 0.3s, background 0.3s;
+        }
+
+        .feature-card:hover {
+            background: rgba(255,255,255,0.15);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            transform: translateY(-3px);
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, rgba(74,195,224,0.3), rgba(33,150,243,0.3));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .feature-card p {
+            color: rgba(255,255,255,0.75);
+            font-size: 0.95rem;
+        }
+
+        /* Download Section */
+        .download {
+            padding: 80px 40px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .download-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .download-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            border: 1px solid var(--border);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .download-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .platform-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--bg);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 32px;
+        }
+
+        .download-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--text);
+        }
+
+        .download-card p {
+            color: var(--text-light);
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            padding: 14px 35px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: background 0.2s;
+        }
+
+        .download-btn:hover {
+            background: var(--primary-dark);
+        }
+
+        .version {
+            margin-top: 15px;
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        /* Note Box */
+        .note-box {
+            background: #FFFBEB;
+            border: 1px solid #FCD34D;
+            border-radius: 12px;
+            padding: 20px 25px;
+            margin-top: 40px;
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+
+        .note-icon {
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .note-content h4 {
+            color: #92400E;
+            margin-bottom: 5px;
+            font-size: 1rem;
+        }
+
+        .note-content p {
+            color: #78350F;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg);
+            border-top: 1px solid var(--border);
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        footer p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-links {
+            margin-top: 15px;
+        }
+
+        /* Responsive - Tablet */
+        @media (max-width: 1100px) {
+            .hero {
+                padding: 60px 40px;
+            }
+
+            .hero-content {
+                gap: 50px;
+            }
+
+            .hero-text h1 {
+                font-size: 2.6rem;
+            }
+
+            .phone-mockup img {
+                width: 120px;
+            }
+
+            .laptop-screen img {
+                width: 220px;
+            }
+
+            .laptop-base {
+                width: 240px;
+            }
+
+            .laptop-bottom {
+                width: 280px;
+            }
+        }
+
+        /* Responsive - Small Tablet / Large Phone */
+        @media (max-width: 900px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text p {
+                max-width: 100%;
+            }
+
+            .hero-text h1 {
+                font-size: 2.4rem;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-visual {
+                margin-top: 40px;
+                flex-wrap: wrap;
+                gap: 20px;
+                justify-content: center;
+            }
+
+            /* Phones side by side, laptop below */
+            .hero-visual .device-wrapper:nth-child(1),
+            .hero-visual .device-wrapper:nth-child(3) {
+                order: 1;
+            }
+
+            .hero-visual .device-wrapper:nth-child(2) {
+                order: 2;
+                width: 100%;
+                margin-top: 20px;
+            }
+
+            .phone-mockup img {
+                width: 130px;
+            }
+
+            .laptop-screen img {
+                width: 220px;
+            }
+
+            .laptop-base {
+                width: 240px;
+            }
+
+            .laptop-bottom {
+                width: 280px;
+            }
+
+            .navbar {
+                padding: 15px 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .tutorial-tabs {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .tutorial-tab {
+                width: 100%;
+            }
+        }
+
+        /* Responsive - Phone */
+        @media (max-width: 600px) {
+            .hero {
+                padding: 40px 20px;
+            }
+
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .hero-text p {
+                font-size: 1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .hero-visual {
+                gap: 15px;
+            }
+
+            /* Phones side by side, laptop below */
+            .hero-visual .device-wrapper:nth-child(1),
+            .hero-visual .device-wrapper:nth-child(3) {
+                order: 1;
+            }
+
+            .hero-visual .device-wrapper:nth-child(2) {
+                order: 2;
+                width: 100%;
+                margin-top: 15px;
+            }
+
+            .device-wrapper {
+                gap: 6px;
+            }
+
+            .device-label {
+                font-size: 0.65rem;
+            }
+
+            .phone-mockup {
+                padding: 4px;
+                border-radius: 16px;
+            }
+
+            .phone-mockup img {
+                width: 100px;
+                border-radius: 14px;
+            }
+
+            .laptop-screen {
+                padding: 6px 6px 4px 6px;
+                border-radius: 8px 8px 0 0;
+            }
+
+            .laptop-screen img {
+                width: 160px;
+                border-radius: 3px;
+            }
+
+            .laptop-base {
+                width: 172px;
+                height: 8px;
+            }
+
+            .laptop-bottom {
+                width: 200px;
+                height: 4px;
+            }
+
+            .features, .download, .tutorial {
+                padding: 50px 20px;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+            }
+
+            .features-grid, .tutorial-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .download-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Responsive - Very Small Phone */
+        @media (max-width: 400px) {
+            .hero-text h1 {
+                font-size: 1.7rem;
+            }
+
+            .hero-visual {
+                gap: 10px;
+            }
+
+            .phone-mockup img {
+                width: 75px;
+            }
+
+            .laptop-screen img {
+                width: 110px;
+            }
+
+            .laptop-base {
+                width: 122px;
+            }
+
+            .laptop-bottom {
+                width: 145px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="#" class="nav-brand">
+            <img src="icon.png" alt="TurboDictate" class="nav-logo">
+            <span class="nav-title">TurboDictate</span>
+        </a>
+        <div class="nav-links">
+            <a href="#features">Features</a>
+            <a href="#download">Download</a>
+            <a href="#tutorial">How to Use</a>
+            <a href="privacy-policy.html">Privacy</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Transform Your Voice Into <span>Text Instantly</span></h1>
+                <p>
+                    TurboDictate is a fast, private voice-to-text app powered by AI.
+                    Simply speak, and watch your words appear on screen in seconds.
+                    Perfect for notes, messages, documents, or anywhere you need to type.
+                    Available for Windows desktop and Android mobile.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#download" class="btn btn-primary">
+                        <span class="btn-icon">&#11015;</span>
+                        Download Now
+                    </a>
+                    <a href="#features" class="btn btn-secondary">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <!-- Mobile App -->
+                <div class="device-wrapper">
+                    <div class="phone-mockup">
+                        <img src="TurboDictate_Phone.jpeg" alt="TurboDictate Mobile App">
+                    </div>
+                    <span class="device-label">Mobile App</span>
+                </div>
+
+                <!-- Desktop App -->
+                <div class="device-wrapper">
+                    <div class="laptop-frame">
+                        <div class="laptop-screen">
+                            <img src="turbo_record.png" alt="TurboDictate Desktop App">
+                        </div>
+                        <div class="laptop-base"></div>
+                        <div class="laptop-bottom"></div>
+                    </div>
+                    <span class="device-label">Windows</span>
+                </div>
+
+                <!-- Keyboard -->
+                <div class="device-wrapper">
+                    <div class="phone-mockup">
+                        <img src="TurboDictate_Keyboard.jpeg" alt="TurboDictate Keyboard">
+                    </div>
+                    <span class="device-label">Voice Keyboard</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="features-content">
+            <h2 class="section-title">Why TurboDictate?</h2>
+            <p class="section-subtitle">
+                Fast, accurate, and private voice transcription for everyday use.
+            </p>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">&#9889;</div>
+                    <h3>Lightning Fast</h3>
+                    <p>Powered by Groq's Whisper AI for near-instant transcription. Your speech becomes text in seconds.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">&#127760;</div>
+                    <h3>Multi-Language</h3>
+                    <p>Supports English and Arabic transcription. Speak in your preferred language.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">&#128274;</div>
+                    <h3>Privacy First</h3>
+                    <p>Audio is processed and immediately deleted. Your recordings are never stored on any server.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">&#9000;</div>
+                    <h3>Global Hotkeys (Windows)</h3>
+                    <p>Press Alt+R anywhere on your PC to start dictating. Text is automatically pasted where you need it.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">&#9000;</div>
+                    <h3>Custom Keyboard (Android)</h3>
+                    <p>Use TurboDictate as your voice input keyboard. Dictate directly into any app on your phone.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">&#128203;</div>
+                    <h3>History & Copy</h3>
+                    <p>All your transcriptions are saved locally. Easily copy or reuse any previous text.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section class="download" id="download">
+        <h2 class="section-title">Download TurboDictate</h2>
+        <p class="section-subtitle">
+            Choose your platform and start dictating in minutes.
+        </p>
+
+        <div class="download-cards">
+            <!-- Windows -->
+            <div class="download-card">
+                <div class="platform-icon">&#128187;</div>
+                <h3>Windows</h3>
+                <p>Desktop app with global hotkeys. Works anywhere on your PC.</p>
+                <a href="TurboDictate_Setup.exe" class="download-btn">
+                    Download for Windows
+                </a>
+                <p class="version">Version 1.0.1 &middot; Windows 10+</p>
+            </div>
+
+            <!-- Android -->
+            <div class="download-card">
+                <div class="platform-icon">&#128241;</div>
+                <h3>Android</h3>
+                <p>Mobile app with custom keyboard. Dictate into any text field.</p>
+                <a href="app-debug.apk" class="download-btn">
+                    Download for Android
+                </a>
+                <p class="version">Version 1.0.0 &middot; Android 7.0+</p>
+            </div>
+        </div>
+
+        <!-- Installation Note -->
+        <div class="note-box">
+            <span class="note-icon">&#128161;</span>
+            <div class="note-content">
+                <h4>Installation Tips</h4>
+                <p>
+                    <strong>Windows:</strong> If you see "Unknown publisher", click "More info" then "Run anyway".<br>
+                    <strong>Android:</strong> Enable "Install unknown apps" in Settings before installing the APK.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Use Section -->
+    <section class="tutorial" id="tutorial">
+        <div class="tutorial-content">
+            <h2 class="section-title">How to Use</h2>
+            <p class="section-subtitle">
+                Get started in just a few steps. Select your platform below.
+            </p>
+
+            <div class="tutorial-tabs">
+                <button class="tutorial-tab active" onclick="showTutorial('windows')">🖥️ Windows</button>
+                <button class="tutorial-tab" onclick="showTutorial('android')">📱 Android</button>
+            </div>
+
+            <!-- Windows Tutorial -->
+            <div class="tutorial-panel active" id="windows-tutorial">
+                <div class="tutorial-steps">
+                    <div class="tutorial-step">
+                        <div class="step-number">1</div>
+                        <h4>Install & Launch</h4>
+                        <p>Run the installer. If you select "Launch immediately", the app will start and appear in your system tray (bottom-right corner, near the clock).</p>
+                    </div>
+                    <div class="tutorial-step">
+                        <div class="step-number">2</div>
+                        <h4>System Tray Icon</h4>
+                        <p>TurboDictate runs in the background. Click the tray icon to show the widget, or use hotkeys directly. The app pops up automatically when you start recording.</p>
+                    </div>
+                    <div class="tutorial-step">
+                        <div class="step-number">3</div>
+                        <h4>Use Hotkeys Anywhere</h4>
+                        <p>Press <span class="hotkey-badge">Alt+R</span> for English or <span class="hotkey-badge">Alt+A</span> for Arabic to start recording from any application.</p>
+                    </div>
+                    <div class="tutorial-step">
+                        <div class="step-number">4</div>
+                        <h4>Speak & Stop</h4>
+                        <p>Speak clearly, then press <span class="hotkey-badge">Tab</span> or click Stop. Your text is automatically copied to clipboard and pasted where your cursor is!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Android Tutorial -->
+            <div class="tutorial-panel" id="android-tutorial">
+                <div class="tutorial-steps">
+                    <div class="tutorial-step">
+                        <div class="step-number">1</div>
+                        <h4>Enable Keyboard</h4>
+                        <p>After installing, open the app and tap "Enable Keyboard". Toggle ON "TurboDictate Voice" in settings.</p>
+                    </div>
+                    <div class="tutorial-step">
+                        <div class="step-number">2</div>
+                        <h4>Allow Permission</h4>
+                        <p>Android shows a warning for all keyboards - this is normal. Tap "OK" to continue. We don't collect any data.</p>
+                    </div>
+                    <div class="tutorial-step">
+                        <div class="step-number">3</div>
+                        <h4>Switch to TurboDictate</h4>
+                        <p>In any app, long-press the mic/globe icon on your keyboard, select "Input method", then choose "TurboDictate Voice".</p>
+                    </div>
+                    <div class="tutorial-step">
+                        <div class="step-number">4</div>
+                        <h4>Start Dictating!</h4>
+                        <p>Tap the mic button to record, tap again to stop. Your speech is transcribed and pasted instantly!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function showTutorial(platform) {
+            // Update tabs
+            document.querySelectorAll('.tutorial-tab').forEach(tab => tab.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Update panels
+            document.querySelectorAll('.tutorial-panel').forEach(panel => panel.classList.remove('active'));
+            document.getElementById(platform + '-tutorial').classList.add('active');
+        }
+    </script>
+
+    <!-- Footer -->
+    <footer>
+        <p>TurboDictate &copy; 2025</p>
+        <p class="footer-links">
+            <a href="privacy-policy.html">Privacy Policy</a>
+        </p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TurboDictate - Privacy Policy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
+            min-height: 100vh;
+            color: #1e293b;
+            line-height: 1.7;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1E3A5F 0%, #2196F3 100%);
+            padding: 60px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .header-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            margin-bottom: 24px;
+        }
+
+        .last-updated {
+            display: inline-block;
+            background: linear-gradient(135deg, #2196F3 0%, #4AC3E0 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 30px;
+        }
+
+        .intro {
+            font-size: 1.1rem;
+            color: #475569;
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .section {
+            margin-bottom: 32px;
+        }
+
+        .section:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .section-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .section h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #1e293b;
+        }
+
+        .section p {
+            color: #475569;
+            margin-bottom: 12px;
+        }
+
+        .section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .section li {
+            position: relative;
+            padding-left: 28px;
+            margin-bottom: 10px;
+            color: #475569;
+        }
+
+        .section li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 8px;
+            height: 8px;
+            background: linear-gradient(135deg, #2196F3 0%, #4AC3E0 100%);
+            border-radius: 50%;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            border: 1px solid #86efac;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .highlight-box.warning {
+            background: linear-gradient(135deg, #fefce8 0%, #fef9c3 100%);
+            border-color: #fde047;
+        }
+
+        .highlight-box h3 {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #166534;
+        }
+
+        .highlight-box.warning h3 {
+            color: #854d0e;
+        }
+
+        .highlight-box p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        .third-party {
+            background: #f8fafc;
+            border-radius: 10px;
+            padding: 16px 20px;
+            margin: 12px 0;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .third-party-icon {
+            font-size: 24px;
+        }
+
+        .third-party-info h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .third-party-info a {
+            color: #2196F3;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .third-party-info a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-box {
+            background: linear-gradient(135deg, #2196F3 0%, #4AC3E0 100%);
+            border-radius: 12px;
+            padding: 24px;
+            color: white;
+            text-align: center;
+        }
+
+        .contact-box h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+
+        .contact-box a {
+            color: white;
+            font-weight: 500;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        .footer a {
+            color: #2196F3;
+            text-decoration: none;
+        }
+
+        @media (max-width: 600px) {
+            .header {
+                padding: 40px 20px;
+            }
+
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .card {
+                padding: 24px;
+            }
+
+            .section h2 {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">&#9889;</div>
+            <h1>TurboDictate</h1>
+            <p>Privacy Policy</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="card">
+            <span class="last-updated">Last Updated: December 2025</span>
+
+            <p class="intro">
+                At TurboDictate, we take your privacy seriously. This policy explains what data we collect,
+                how we use it, and your rights regarding your personal information. We believe in transparency
+                and keeping things simple.
+            </p>
+
+            <!-- Section 1: Data Collection -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-icon">&#128202;</div>
+                    <h2>1. Information We Collect</h2>
+                </div>
+                <p>TurboDictate collects minimal data necessary to provide voice-to-text transcription:</p>
+                <ul>
+                    <li><strong>Audio Recordings:</strong> Temporary voice recordings captured when you use the dictation feature</li>
+                    <li><strong>Transcription Text:</strong> The converted text from your voice recordings</li>
+                    <li><strong>Language Preference:</strong> Your selected transcription language (English or Arabic)</li>
+                </ul>
+            </div>
+
+            <!-- Section 2: How We Use Data -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-icon">&#9881;</div>
+                    <h2>2. How We Use Your Data</h2>
+                </div>
+                <ul>
+                    <li>Audio recordings are sent to our transcription service to convert speech to text</li>
+                    <li>Transcription history is stored locally on your device for your convenience</li>
+                    <li>Language preferences are used to improve transcription accuracy</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <h3>&#9989; Audio Deletion Guarantee</h3>
+                    <p>Your audio recordings are <strong>immediately deleted</strong> after transcription is complete. We do not store, retain, or archive any audio files on any server.</p>
+                </div>
+            </div>
+
+            <!-- Section 3: Data Storage -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-icon">&#128225;</div>
+                    <h2>3. Data Storage & Security</h2>
+                </div>
+                <ul>
+                    <li><strong>Local Storage:</strong> All transcription history is stored exclusively on your device</li>
+                    <li><strong>No Cloud Sync:</strong> We do not upload or sync your transcriptions to any cloud server</li>
+                    <li><strong>Encryption:</strong> All data transmission uses secure HTTPS encryption</li>
+                    <li><strong>Your Control:</strong> You can delete your transcription history at any time within the app</li>
+                </ul>
+            </div>
+
+            <!-- Section 4: Third Party Services -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-icon">&#127760;</div>
+                    <h2>4. Third-Party Services</h2>
+                </div>
+                <p>We use the following third-party service to provide transcription functionality:</p>
+
+                <div class="third-party">
+                    <div class="third-party-icon">&#129302;</div>
+                    <div class="third-party-info">
+                        <h4>Groq API</h4>
+                        <p style="color: #64748b; font-size: 0.9rem; margin-bottom: 4px;">Speech-to-text transcription powered by Whisper</p>
+                        <a href="https://groq.com/privacy-policy/" target="_blank">View Groq's Privacy Policy &#8599;</a>
+                    </div>
+                </div>
+
+                <div class="highlight-box warning">
+                    <h3>&#9888;&#65039; Important Note</h3>
+                    <p>When you record audio, it is transmitted to Groq's servers for processing. Please review Groq's privacy policy to understand how they handle data.</p>
+                </div>
+            </div>
+
+            <!-- Section 5: Permissions -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-icon">&#128274;</div>
+                    <h2>5. App Permissions</h2>
+                </div>
+                <p>TurboDictate requires the following permissions:</p>
+                <ul>
+                    <li><strong>Microphone:</strong> Required to record your voice for transcription</li>
+                    <li><strong>Internet:</strong> Required to send audio to the transcription service</li>
+                    <li><strong>Storage:</strong> Required to temporarily save audio files before processing</li>
+                </ul>
+            </div>
+
+            <!-- Section 6: Your Rights -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-icon">&#128101;</div>
+                    <h2>6. Your Rights</h2>
+                </div>
+                <p>You have full control over your data:</p>
+                <ul>
+                    <li><strong>Access:</strong> View all your transcriptions in the History tab</li>
+                    <li><strong>Delete:</strong> Remove individual transcriptions or clear all history</li>
+                    <li><strong>Portability:</strong> Copy any transcription to use elsewhere</li>
+                    <li><strong>Opt-out:</strong> Simply uninstall the app to remove all local data</li>
+                </ul>
+            </div>
+
+            <!-- Section 7: Children's Privacy -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-icon">&#128118;</div>
+                    <h2>7. Children's Privacy</h2>
+                </div>
+                <p>TurboDictate is not intended for use by children under the age of 13. We do not knowingly collect personal information from children under 13.</p>
+            </div>
+
+            <!-- Section 8: Changes -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-icon">&#128221;</div>
+                    <h2>8. Changes to This Policy</h2>
+                </div>
+                <p>We may update this privacy policy from time to time. We will notify you of any changes by posting the new policy on this page and updating the "Last Updated" date.</p>
+            </div>
+
+            <!-- Contact -->
+            <div class="section">
+                <div class="contact-box">
+                    <h3>&#128236; Questions or Concerns?</h3>
+                    <p>Contact us at: <a href="mailto:your-email@example.com">your-email@example.com</a></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 TurboDictate. All rights reserved.</p>
+        <p style="margin-top: 8px;">
+            <a href="#">Terms of Service</a> &middot;
+            <a href="#">Privacy Policy</a>
+        </p>
+    </footer>
+</body>
+</html>
